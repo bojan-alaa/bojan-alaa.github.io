@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生化酒店-沉浸式惊悚生存与剧情体验</title>
+    <meta name="description" content="生化酒店提供最顶级的沉浸式恐怖生存体验。探索废弃酒店的秘密，解开生化危机的谜团，体验紧张刺激的互动剧情与模拟生存挑战。">
+    <meta name="keywords" content="生化酒店,恐怖游戏,互动小说,生存挑战,解谜游戏">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0a0a0c;
+            --bg-card: #141418;
+            --text-main: #e0e0e0;
+            --text-muted: #8b8b93;
+            --accent-red: #ff2a2a;
+            --accent-green: #00ff41;
+            --accent-gold: #ffb700;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 12, 0.95);
+            border-bottom: 1px solid #333;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--accent-red);
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-red);
+        }
+
+        .btn-login {
+            padding: 8px 20px;
+            border: 1px solid var(--accent-red);
+            color: var(--accent-red);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .btn-login:hover {
+            background: var(--accent-red);
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://picsum.photos/seed/horrorhotel/1920/1080') no-repeat center center/cover;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.1) 2px, rgba(0, 0, 0, 0.1) 4px);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .tagline {
+            color: var(--accent-green);
+            font-family: monospace;
+            margin-bottom: 20px;
+            display: block;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 0 20px rgba(255, 42, 42, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--accent-red);
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 42, 42, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #d91e1e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 42, 42, 0.6);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            background: var(--bg-dark);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+        }
+
+        .features-grid {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 40px 30px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent-red);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-red);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Simulation Section */
+        .simulation {
+            padding: 80px 20px;
+            background: #0f0f12;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+
+        .sim-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .sim-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .sim-info p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .sim-steps {
+            margin-top: 30px;
+        }
+
+        .step {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            background: var(--accent-red);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        .step-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .step-text p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .sim-visual {
+            position: relative;
+            height: 400px;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .sim-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+            transition: opacity 0.5s;
+        }
+
+        .sim-visual:hover img {
+            opacity: 0.4;
+        }
+
+        .sim-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            padding: 15px;
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .sim-status {
+            font-family: monospace;
+            color: var(--accent-green);
+            font-size: 0.9rem;
+        }
+
+        /* Ranking / Content Section */
+        .content-section {
+            padding: 80px 20px;
+            background: var(--bg-dark);
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #333;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .tab-btn.active {
+            color: var(--accent-red);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-red);
+        }
+
+        .ranking-grid {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .rank-card {
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .rank-card:hover {
+            transform: scale(1.02);
+        }
+
+        .rank-img {
+            height: 350px;
+            background-color: #222;
+            position: relative;
+        }
+
+        .rank-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .rank-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.7);
+            color: var(--accent-gold);
+            padding: 4px 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .rank-info {
+            padding: 20px;
+        }
+
+        .rank-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .rank-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 20px;
+            background: #0f0f12;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #333;
+            margin-bottom: 10px;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 20px 0;
+            color: var(--text-main);
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            color: var(--accent-red);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .faq-answer p {
+            padding-bottom: 20px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+            color: var(--accent-red);
+        }
+
+        /* Footer */
+        footer {
+            background: #050506;
+            padding: 60px 20px 30px;
+            border-top: 1px solid #222;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-red);
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            max-width: 300px;
+            font-size: 0.9rem;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-red);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #1a1a1a;
+            padding-top: 30px;
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .nav-container {
+                padding: 0 15px;
+            }
+
+            nav {
+                display: none; /* In a real app, implement a hamburger menu */
+            }
+
+            .sim-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sim-visual {
+                order: -1;
+                height: 300px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">生化<span>酒店</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#simulation">生存模拟</a></li>
+                    <li><a href="#ranking">剧情榜单</a></li>
+                    <li><a href="#faq">玩家指南</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn-login">立即登录</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="tagline">Warning: Restricted Access</span>
+                <h1>在绝望中寻找<br>生存的希望</h1>
+                <p>欢迎来到“生化酒店”。这是一座被遗忘在迷雾中的孤岛，这里潜伏着未知的恐惧与致命的实验体。你将作为唯一的幸存者，解开层层谜团，逃出生天。</p>
+                <button class="btn-primary" onclick="window.location.href='#simulation'">开始逃生</button>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features" id="simulation">
+            <div class="section-header">
+                <h2>沉浸式恐怖体验</h2>
+                <p>结合高精度建模与紧张音效，还原最真实的惊悚氛围</p>
+            </div>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">⚠️</div>
+                    <h3>动态AI追逐</h3>
+                    <p>遭遇的怪物并非固定脚本，它们会根据你的行为模式进行记忆与进化，每一次遭遇都独一无二。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🔦</div>
+                    <h3>环境解谜</h3>
+                    <p>利用有限的资源（手电筒、钥匙、化学试剂）在废弃的走廊与房间中寻找逃脱的线索。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🧬</div>
+                    <h3>剧情分支</h3>
+                    <p>你的每一个选择都会影响剧情走向，甚至决定角色的生死。探索隐藏的真相与阴谋。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Simulation Details -->
+        <section class="simulation">
+            <div class="sim-container">
+                <div class="sim-info">
+                    <h2>模拟逃生流程</h2>
+                    <p>在生化酒店中，冷静是活下去的唯一法则。请遵循以下生存指南，在危机四伏的环境中尽可能延长生命。</p>
+                    
+                    <div class="sim-steps">
+                        <div class="step">
+                            <div class="step-num">1</div>
+                            <div class="step-text">
+                                <h4>搜集物资</h4>
+                                <p>从房间内的桌上、保险箱或尸体上搜刮急救包、弹药和钥匙卡。不要放过任何角落。</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">2</div>
+                            <div class="step-text">
+                                <h4>侦查环境</h4>
+                                <p>使用听觉和视觉侦测危险。生锈的金属声或怪物的嘶吼可能是致命的信号。</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">3</div>
+                            <div class="step-text">
+                                <h4>合理潜行</h4>
+                                <p>在无法战斗时，潜行是最好的武器。蹲下移动，避免发出脚步声，利用阴影躲避视线。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sim-visual">
+                    <img src="https://picsum.photos/seed/horrorcorridor/600/400" alt="Hotel Corridor">
+                    <div class="sim-overlay">
+                        <div class="sim-status">系统状态: 正在监控...</div>
+                        <div class="sim-status">检测到异常生物反应</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ranking Section -->
+        <section class="content-section" id="ranking">
+            <div class="section-header">
+                <h2>热门剧情章节</h2>
+                <p>玩家最关注的生存挑战与剧情解析</p>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-btn active">本周热门</button>
+                <button class="tab-btn">最新更新</button>
+                <button class="tab-btn">高难度挑战</button>
+            </div>
+
+            <div class="ranking-grid">
+                <article class="rank-card">
+                    <div class="rank-img">
+                        <img src="https://picsum.photos/seed/horrorroom/400/600" alt="Chapter 1">
+                        <span class="rank-badge">#1</span>
+                    </div>
+                    <div class="rank-info">
+                        <h4>第一章：迷雾降临</h4>
+                        <div class="rank-meta">
+                            <span>热度: 98.5%</span>
+                            <span>难度: ★★★★☆</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="rank-card">
+                    <div class="rank-img">
+                        <img src="https://picsum.photos/seed/horrormonster/400/600" alt="Chapter 2">
+                        <span class="rank-badge">#2</span>
+                    </div>
+                    <div class="rank-info">
+                        <h4>第二章：实验室废墟</h4>
+                        <div class="rank-meta">
+                            <span>热度: 95.2%</span>
+                            <span>难度: ★★★★★</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="rank-card">
+                    <div class="rank-img">
+                        <img src="https://picsum.photos/seed/horrortorch/400/600" alt="Chapter 3">
+                        <span class="rank-badge">#3</span>
+                    </div>
+                    <div class="rank-info">
+                        <h4>第三章：午夜钟声</h4>
+                        <div class="rank-meta">
+                            <span>热度: 92.1%</span>
+                            <span>难度: ★★★★☆</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="rank-card">
+                    <div class="rank-img">
+                        <img src="https://picsum.photos/seed/horrorkeys/400/600" alt="Chapter 4">
+                        <span class="rank-badge">#4</span>
+                    </div>
+                    <div class="rank-info">
+                        <h4>第四章：地下通道</h4>
+                        <div class="rank-meta">
+                            <span>热度: 88.7%</span>
+                            <span>难度: ★★★☆☆</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" id="faq">
+            <div class="section-header">
+                <h2>玩家常见问题</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        生化酒店支持哪些平台？
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>目前生化酒店支持PC端（Steam平台）以及主流的移动端设备。我们正在开发主机版本，敬请期待。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        游戏是否包含恐怖元素？
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>是的，本游戏主打心理恐怖与惊悚生存。包含突发惊吓、环境音效以及高强度的追逐战，不适合心理承受能力较弱的玩家。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        是否需要联网才能游玩？
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>单人剧情模式支持离线游玩。多人合作模式需要连接服务器。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        遇到Bug或卡关怎么办？
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>请在官方网站的“帮助中心”提交工单，或加入我们的玩家社区交流心得。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>生化酒店</h3>
+                <p>致力于打造最极致的沉浸式恐怖生存体验，让每一位玩家在绝望中感受肾上腺素的飙升。</p>
+            </div>
+            <div class="footer-col">
+                <h4>探索</h4>
+                <ul>
+                    <li><a href="#">剧情简介</a></li>
+                    <li><a href="#">角色介绍</a></li>
+                    <li><a href="#">世界观设定</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>支持</h4>
+                <ul>
+                    <li><a href="#">下载中心</a></li>
+                    <li><a href="#">系统要求</a></li>
+                    <li><a href="#">更新日志</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li><a href="#">官方论坛</a></li>
+                    <li><a href="#">客服邮箱</a></li>
+                    <li><a href="#">商务合作</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 Bio-Hazard Hotel. All Rights Reserved. 仅供演示设计。
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                
+                // Close other open items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                    }
+                });
+
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Tab Switching Logic (Visual Only)
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                // In a real app, this would swap content
+            });
+        });
+    </script>
+</body>
+</html>
