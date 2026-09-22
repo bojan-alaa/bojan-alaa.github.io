@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="齐楚嫣个人主页，提供最新动态、作品展示、粉丝互动及独家专访内容。">
+    <meta name="keywords" content="齐楚嫣, 个人主页, 粉丝站, 作品">
+    <title>齐楚嫣-个人主页与作品展示</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d63384;
+            --secondary-color: #f8f9fa;
+            --text-dark: #212529;
+            --text-gray: #6c757d;
+            --border-color: #dee2e6;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Container */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #fdf2f8 0%, #fff 100%);
+            padding: 4rem 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 10px 25px rgba(214, 51, 132, 0.2);
+            margin: 0 auto 1.5rem;
+            background-color: #eee;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(214, 51, 132, 0.1);
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Section Layout */
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10%;
+            height: 80%;
+            width: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Works Grid */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .work-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border-color);
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        .work-cover {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            background-color: #f0f0f0;
+        }
+
+        .work-info {
+            padding: 1.5rem;
+        }
+
+        .work-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .work-meta {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .work-desc {
+            font-size: 0.95rem;
+            color: #495057;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #b02a6c;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-dark);
+            background-color: #f8f9fa;
+        }
+
+        /* Timeline / Bio */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.6rem;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 2px solid var(--primary-color);
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f8f9fa;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-text {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+            transition: background-color 0.2s;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-menu {
+                display: none; /* Simplified for single file static showcase */
+            }
+
+            .header-inner {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">齐楚嫣</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#works">作品</a></li>
+                    <li><a href="#about">关于</a></li>
+                    <li><a href="#gallery">图集</a></li>
+                    <li><a href="#contact">联系</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <img src="https://picsum.photos/seed/qichuyan_hero/200/200" alt="齐楚嫣头像" class="hero-avatar">
+                <h1>齐楚嫣</h1>
+                <p class="subtitle">独立创作者 / 视觉设计师 / 热爱生活的记录者</p>
+                <div class="hero-tags">
+                    <span class="tag">创意设计</span>
+                    <span class="tag">插画艺术</span>
+                    <span class="tag">生活方式</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Works Section -->
+        <section id="works">
+            <div class="container">
+                <h2 class="section-title">精选作品</h2>
+                <div class="works-grid">
+                    <!-- Work 1 -->
+                    <article class="work-card">
+                        <img src="https://picsum.photos/seed/art1/400/300" alt="作品封面" class="work-cover">
+                        <div class="work-info">
+                            <h3 class="work-title">城市印象：霓虹之下</h3>
+                            <div class="work-meta">
+                                <span>2023年10月</span>
+                                <span>数字绘画</span>
+                            </div>
+                            <p class="work-desc">探索现代都市夜晚光影交错的美感，捕捉城市脉搏的瞬间。</p>
+                            <a href="#" class="btn btn-primary">查看详情</a>
+                        </div>
+                    </article>
+
+                    <!-- Work 2 -->
+                    <article class="work-card">
+                        <img src="https://picsum.photos/seed/art2/400/300" alt="作品封面" class="work-cover">
+                        <div class="work-info">
+                            <h3 class="work-title">静谧森林</h3>
+                            <div class="work-meta">
+                                <span>2023年08月</span>
+                                <span>油画风格</span>
+                            </div>
+                            <p class="work-desc">回归自然，用厚重的笔触描绘森林深处的宁静与神秘。</p>
+                            <a href="#" class="btn btn-outline">查看详情</a>
+                        </div>
+                    </article>
+
+                    <!-- Work 3 -->
+                    <article class="work-card">
+                        <img src="https://picsum.photos/seed/art3/400/300" alt="作品封面" class="work-cover">
+                        <div class="work-info">
+                            <h3 class="work-title">未来构想</h3>
+                            <div class="work-meta">
+                                <span>2023年05月</span>
+                                <span>概念设计</span>
+                            </div>
+                            <p class="work-desc">基于赛博朋克风格的未来城市建筑概念草图，探索科技与人文的融合。</p>
+                            <a href="#" class="btn btn-primary">查看详情</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About / Timeline Section -->
+        <section id="about">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+                    <div>
+                        <h2 class="section-title">关于我</h2>
+                        <p style="margin-bottom: 1.5rem; color: #495057;">
+                            你好，我是齐楚嫣。我是一名专注于视觉传达与数字艺术的创作者。我相信每一笔线条都能讲述一个故事，每一个色彩都能传递一种情绪。
+                        </p>
+                        <p style="margin-bottom: 2rem; color: #495057;">
+                            在这个数字化的时代，我致力于将传统美学与现代设计理念相结合，创作出既有深度又具视觉冲击力的作品。无论是商业插画还是个人艺术探索，我都保持着对完美的追求。
+                        </p>
+                        <a href="#" class="btn btn-primary" style="padding: 0.8rem 2rem; font-size: 1rem;">下载简历</a>
+                    </div>
+                    
+                    <div>
+                        <h2 class="section-title">成长轨迹</h2>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">2023</div>
+                                <div class="timeline-content">
+                                    <h3>作品集上线</h3>
+                                    <p>正式发布个人独立作品集网站，开始系统展示过往项目。</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2021</div>
+                                <div class="timeline-content">
+                                    <h3>毕业设计金奖</h3>
+                                    <p>凭借视觉传达设计作品获得校级毕业设计大赛金奖。</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2019</div>
+                                <div class="timeline-content">
+                                    <h3>入行设计行业</h3>
+                                    <p>加入知名广告公司，开始参与商业项目设计与执行。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <div class="container">
+                <h2 class="section-title">生活图集</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="https://picsum.photos/seed/g1/300/300" alt="生活摄影"></div>
+                    <div class="gallery-item"><img src="https://picsum.photos/seed/g2/300/300" alt="生活摄影"></div>
+                    <div class="gallery-item"><img src="https://picsum.photos/seed/g3/300/300" alt="生活摄影"></div>
+                    <div class="gallery-item"><img src="https://picsum.photos/seed/g4/300/300" alt="生活摄影"></div>
+                    <div class="gallery-item"><img src="https://picsum.photos/seed/g5/300/300" alt="生活摄影"></div>
+                    <div class="gallery-item"><img src="https://picsum.photos/seed/g6/300/300" alt="生活摄影"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-icon" title="微博">WB</a>
+                <a href="#" class="social-icon" title="微信">WX</a>
+                <a href="#" class="social-icon" title="Instagram">IG</a>
+                <a href="#" class="social-icon" title="Email">EM</a>
+            </div>
+            <p class="footer-text">&copy; 2023 齐楚嫣. All Rights Reserved.</p>
+            <p class="footer-text" style="font-size: 0.8rem; opacity: 0.7;">Designed for Showcase</p>
+        </div>
+    </footer>
+
+</body>
+</html>
