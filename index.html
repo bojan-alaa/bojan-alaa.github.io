@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="好压软件 - 专业高效的压缩软件，支持多种格式压缩解压。提供最新版本下载、使用教程、常见问题解答及软件功能介绍。">
+    <meta name="keywords" content="好压软件, 压缩软件, 7z, zip, 解压, 好压下载, 压缩工具">
+    <title>好压软件-专业高效的压缩解压工具与下载指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --accent-hover: #2980b9;
+            --bg-light: #f8f9fa;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e1e4e8;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .btn-download {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .btn-download:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .main-download-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 16px 48px;
+            font-size: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .main-download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44, 62, 80, 0.4);
+        }
+
+        /* 版本选择 */
+        .version-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            padding: 0 20px;
+        }
+
+        .version-tab {
+            padding: 10px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            background: white;
+            transition: all 0.2s;
+        }
+
+        .version-tab.active {
+            background-color: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        /* 特性网格 */
+        .features {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            border-radius: 12px;
+            background: var(--bg-light);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        /* 使用场景 */
+        .scenarios {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .scenario-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .scenario-item {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .scenario-item h4 {
+            margin: 15px 0 10px;
+            color: var(--primary-color);
+        }
+
+        .scenario-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* 下载区域 */
+        .download-section {
+            padding: 80px 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+
+        .download-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .download-section p {
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+
+        .download-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .dl-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 12px;
+            min-width: 280px;
+            text-align: left;
+            transition: background 0.3s;
+        }
+
+        .dl-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .dl-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .dl-card .size {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .dl-card .btn-small {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* 常见问题 */
+        .faq {
+            padding: 80px 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 15px;
+            color: var(--text-secondary);
+            display: none;
+            padding-left: 10px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--accent-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #f1f3f5;
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #e1e4e8;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .scenario-list {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.5 3H4.5C3.67157 3 3 3.67157 3 4.5V19.5C3 20.3284 3.67157 21 4.5 21H19.5C20.3284 21 21 20.3284 21 19.5V4.5C21 3.67157 20.3284 3 19.5 3Z" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 12H15" stroke="#2c3e50" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M9 8H15" stroke="#2c3e50" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M9 16H15" stroke="#2c3e50" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                好压<span>软件</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#">首页</a>
+                <a href="#features">功能特性</a>
+                <a href="#scenarios">应用场景</a>
+                <a href="#faq">常见问题</a>
+                <a href="#download">下载中心</a>
+            </nav>
+            <a href="#download" class="btn-download">立即下载</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>专业高效的压缩与解压工具</h1>
+                <p>好压软件是一款免费、安全、轻量级的压缩软件，支持多种格式，为您解决文件传输、存储空间不足等问题，提升办公效率。</p>
+                <a href="#download" class="main-download-btn">免费下载好压</a>
+                
+                <div class="version-tabs">
+                    <div class="version-tab active" onclick="switchTab(this)">好压 X</div>
+                    <div class="version-tab" onclick="switchTab(this)">好压 XE</div>
+                    <div class="version-tab" onclick="switchTab(this)">好压 X5</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>核心功能优势</h2>
+                    <p>专为现代办公与生活设计的压缩解决方案</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>极速压缩</h3>
+                        <p>采用先进的压缩算法，在保证文件完整性的前提下，大幅提升压缩率，节省存储空间和网络传输时间。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>安全可靠</h3>
+                        <p>内置强大的加密功能，支持设置密码保护您的压缩包，防止敏感信息泄露，保障数据安全。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">📦</div>
+                        <h3>多格式支持</h3>
+                        <p>完美支持 7z, ZIP, RAR, TAR, GZIP, ISO, CAB 等主流压缩格式，无需安装其他软件即可处理。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🛠️</div>
+                        <h3>文件修复</h3>
+                        <p>当压缩包损坏时，好压提供强大的修复功能，最大程度挽回数据损失，减少不必要的麻烦。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="scenarios" class="scenarios">
+            <div class="container">
+                <div class="section-header">
+                    <h2>适用场景</h2>
+                    <p>从个人娱乐到企业办公，好压无处不在</p>
+                </div>
+                <div class="scenario-list">
+                    <div class="scenario-item">
+                        <div style="font-size: 32px; color: #3498db;">📂</div>
+                        <h4>文件归档</h4>
+                        <p>整理电脑中的照片、文档，将大量零散文件打包成易于管理的压缩包。</p>
+                    </div>
+                    <div class="scenario-item">
+                        <div style="font-size: 32px; color: #3498db;">📤</div>
+                        <h4>网络传输</h4>
+                        <p>发送超大视频或安装包给同事或朋友，减少发送失败和超时问题。</p>
+                    </div>
+                    <div class="scenario-item">
+                        <div style="font-size: 32px; color: #3498db;">💾</div>
+                        <h4>存储节省</h4>
+                        <p>为手机或云盘腾出空间，通过压缩旧数据来优化存储管理。</p>
+                    </div>
+                    <div class="scenario-item">
+                        <div style="font-size: 32px; color: #3498db;">🔒</div>
+                        <h4>隐私保护</h4>
+                        <p>将私密资料压缩并加密，防止他人随意查看您的私人信息。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="download" class="download-section">
+            <div class="container">
+                <h2>选择适合您的版本</h2>
+                <p>所有版本均经过严格测试，安全无毒，免费使用</p>
+                <div class="download-cards">
+                    <div class="dl-card">
+                        <h3>好压 X (最新版)</h3>
+                        <span class="size">v3.0 | 45 MB | Windows</span>
+                        <a href="#" class="btn-small">立即下载</a>
+                    </div>
+                    <div class="dl-card">
+                        <h3>好压 XE (精简版)</h3>
+                        <span class="size">v1.0 | 12 MB | Windows</span>
+                        <a href="#" class="btn-small">立即下载</a>
+                    </div>
+                    <div class="dl-card">
+                        <h3>好压 X5 (绿色版)</h3>
+                        <span class="size">v2.5 | 38 MB | Windows</span>
+                        <a href="#" class="btn-small">立即下载</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">好压软件安全吗？<span>+</span></div>
+                        <div class="faq-answer">好压软件完全免费且开源，经过长期的市场检验，代码透明，无捆绑广告或恶意插件，您可以放心下载使用。</div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">支持哪些操作系统？<span>+</span></div>
+                        <div class="faq-answer">好压目前主要支持 Windows 操作系统（Windows 7, 8, 10, 11）。我们也提供移动端版本适配部分格式查看需求。</div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">如何设置压缩密码？<span>+</span></div>
+                        <div class="faq-answer">在压缩文件时，选择“添加密码”选项，输入您想要设置的密码并确认，即可为压缩包添加保护。</div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">压缩后的文件无法打开怎么办？<span>+</span></div>
+                        <div class="faq-answer">如果压缩包损坏，请使用好压的“修复”功能。选择损坏的压缩包，软件会尝试修复并提取出可用文件。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>好压软件</h3>
+                    <p>致力于为用户提供最便捷、高效的压缩解决方案，让数据存储与传输变得更加简单。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>产品中心</h4>
+                    <ul>
+                        <li><a href="#">好压 X 下载</a></li>
+                        <li><a href="#">好压 XE 下载</a></li>
+                        <li><a href="#">功能介绍</a></li>
+                        <li><a href="#">更新日志</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助支持</h4>
+                    <ul>
+                        <li><a href="#">使用教程</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">联系客服</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">合作伙伴</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 好压软件 版权所有. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 选项卡切换逻辑
+        function switchTab(element) {
+            // 移除所有激活状态
+            document.querySelectorAll('.version-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // 激活当前点击的
+            element.classList.add('active');
+            
+            // 这里可以添加逻辑来切换下方显示的下载链接
+            // 为演示效果，仅做UI切换
+        }
+
+        // FAQ 折叠逻辑
+        function toggleFaq(element) {
+            element.classList.toggle('active');
+            const icon = element.querySelector('span');
+            if (element.classList.contains('active')) {
+                icon.textContent = '-';
+            } else {
+                icon.textContent = '+';
+            }
+        }
+    </script>
+</body>
+</html>
